@@ -1,11 +1,17 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
         stage("Build") {
-            git branch: 'main', credentialsId: 'gittest', url: 'https://github.com/inheelee/docker-next-app.git'
+            steps {
+                echo '빌드..'
+                git branch: 'main', credentialsId: 'gittest', url: 'https://github.com/inheelee/docker-next-app.git'
+            }
         }
         stage("Test") {
+            steps {
+                echo "테스트.."
+            }
         }
 //         stage("Deploy")
     }
